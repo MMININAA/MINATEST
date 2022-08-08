@@ -7,36 +7,31 @@
     <script src="https://cdn.jsdelivr.net/gh/hiukim/mind-ar-js@1.1.4/dist/mindar-image-aframe.prod.js"></script>
      <meta name="apple-mobile-web-app-capable" content="yes">
     <script>
-        // Invitation Video Handler
-            
-            AFRAME.registerComponent('video-vidhandler', {
-                init: function() {
-		    console.log('video init entered');
-                    this.toggle = false;
-                    this.vid = document.querySelector("#TestVideo");
-                    this.vid.pause();
-                },
-                tick: function() {
-                    if (this.el.object3D.visible == true) {
-                        if (!this.toggle) {
-                            this.toggle = true;
-                            this.vid.play();
-                        }
-                    } else {
-                        this.toggle = false;
-                        this.vid.pause();
-                    }
-                }
-            });
+       // Alright, a marker has been found. Let's get the video element
+                    var vid = document.getElementById('waterVideo');
 
- 
+                    // Make sure that the video a-frame object is visible
+                    document.querySelector('#TestTest').setAttribute('visible', true);
+
+                    // Reset the video to the beginning and play it through
+                    vid.currentTime = 0;                    
+                    vid.play();
+                    
+                    // Once the video has completed, we're going to hide the a-video element
+                    // which will display the a-image element with the watch behind it
+                    vid.addEventListener('ended', function(e) {
+                        document.querySelector('#TestTest').setAttribute('visible', false);
+                    });
+                });
+            }
+        });
     </script>
   </head>
   <body>
     <a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
         <img id="card" src="./card.png" />
-        <video id="TestVideo" preload="none" response-type="arraybuffer" loop="false" crossorigin webkit-playsinline playsinline controls></video>
+        <video id="TestVideo" loop="false" autoplay="false" src="./test.mp4" preload="auto"></video>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
