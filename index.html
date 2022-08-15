@@ -11,11 +11,11 @@
 // buttons	    
       const showInfo = () => {
         let y = 0;
-        const profileButton = document.querySelector("#profile-button");
-        const webButton = document.querySelector("#web-button");
-        const emailButton = document.querySelector("#email-button");
-        const locationButton = document.querySelector("#location-button");
-        const text = document.querySelector("#text");
+      //  const profileButton = document.querySelector("#profile-button");
+       // const webButton = document.querySelector("#web-button");
+      //  const emailButton = document.querySelector("#email-button");
+      //  const locationButton = document.querySelector("#location-button");
+       // const text = document.querySelector("#text");
 
 // buttons	      
         profileButton.setAttribute("visible", true);
@@ -31,26 +31,26 @@
 
         let currentTab = '';
         webButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "https://softmind.tech");
+        //  text.setAttribute("value", "https://softmind.tech");
           currentTab = 'web';
         });
         emailButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "hello@softmind.tech");
+        //  text.setAttribute("value", "hello@softmind.tech");
           currentTab = 'email';
         });
         profileButton.addEventListener('click', function (evt) {
-          text.setAttribute("value", "AR, VR solutions and consultation");
+        //  text.setAttribute("value", "AR, VR solutions and consultation");
           currentTab = 'profile';
         });
         locationButton.addEventListener('click', function (evt) {
           console.log("loc");
-          text.setAttribute("value", "Vancouver, Canada | Hong Kong");
+       //   text.setAttribute("value", "Vancouver, Canada | Hong Kong");
           currentTab = 'location';
         });
 
         text.addEventListener('click', function (evt) {
           if (currentTab === 'web') {
-            window.location.href="https://softmind.tech";
+        //    window.location.href="https://softmind.tech";
           }
         });
       }
